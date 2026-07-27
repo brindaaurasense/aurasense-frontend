@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'translations.dart';
 
 class DetailScreen extends StatelessWidget {
   final String title;
@@ -93,7 +94,7 @@ class DetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Updated just now · $cityName',
+                    '${AppTranslations.t('updated_just_now')} · $cityName',
                     style: const TextStyle(
                       color: Color(0xFF9FE1CB),
                       fontSize: 11,
@@ -117,9 +118,9 @@ class DetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'WHAT THIS MEANS',
-                    style: TextStyle(
+                  Text(
+                    AppTranslations.t('what_this_means'),
+                    style: const TextStyle(
                       color: Color(0xFF0F6E56),
                       fontSize: 10,
                       fontWeight: FontWeight.w500,
@@ -194,11 +195,11 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  _buildStateRow('Tamil Nadu',  '🟢 Good'),
-                  _buildStateRow('Kerala',      '🟢 Good'),
-                  _buildStateRow('Karnataka',   '🔵 Moderate'),
-                  _buildStateRow('Andhra',      '🟠 Poor'),
-                  _buildStateRow('Telangana',   '🔵 Moderate'),
+                  _buildStateRow('Tamil Nadu',  '🟢 ${AppTranslations.t('good')}'),
+                  _buildStateRow('Kerala',      '🟢 ${AppTranslations.t('good')}'),
+                  _buildStateRow('Karnataka',   '🔵 ${AppTranslations.t('moderate')}'),
+                  _buildStateRow('Andhra',      '🟠 ${AppTranslations.t('poor')}'),
+                  _buildStateRow('Telangana',   '🔵 ${AppTranslations.t('moderate')}'),
                 ],
               ),
             ),

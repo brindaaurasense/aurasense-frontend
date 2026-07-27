@@ -17,6 +17,8 @@ class AppTranslations {
       'search': 'Search',
       'settings': 'Settings',
       'right_now': 'right now',
+      'what_this_means': 'WHAT THIS MEANS',
+      'updated_just_now': 'Updated just now',
     },
     'தமிழ் Tamil': {
       'app_name': 'ஆரா சென்ஸ்',
@@ -33,6 +35,8 @@ class AppTranslations {
       'search': 'தேடல்',
       'settings': 'அமைப்புகள்',
       'right_now': 'இப்போது',
+      'what_this_means': 'இதன் அர்த்தம் என்ன',
+      'updated_just_now': 'இப்போது புதுப்பிக்கப்பட்டது',
     },
   };
 
