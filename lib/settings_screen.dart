@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'translations.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -9,10 +11,32 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool pollutionAlerts = false;
-  bool heatAlerts      = false;
-  bool waterAlerts     = false;
-  bool darkMode        = false;
   String selectedLanguage = 'English';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadLanguage();
+  }
+
+  Future<void> _loadLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedLang = prefs.getString('language') ?? 'English';
+    setState(() {
+      selectedLanguage = savedLang;
+      AppTranslations.currentLanguage = savedLang;
+    });
+  }
+
+  Future<void> _changeLanguage(String? value) async {
+    if (value == null) return;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('language', value);
+    setState(() {
+      selectedLanguage = value;
+      AppTranslations.currentLanguage = value;
+    });
+  }
 
   final List<String> languages = [
     'English',
@@ -109,9 +133,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 'Choose your preferred language',
                 selectedLanguage,
                 languages,
-                (value) {
-                  setState(() => selectedLanguage = value!);
-                },
+                _changeLanguage,
               ),
             ]),
 
@@ -126,36 +148,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 'Notify when AQI is poor',
                 pollutionAlerts,
                 (value) => setState(() => pollutionAlerts = value),
-              ),
-              _buildDivider(),
-              _buildToggleRow(
-                Icons.wb_sunny,
-                'Heat alerts',
-                'Notify when heat is unbearable',
-                heatAlerts,
-                (value) => setState(() => heatAlerts = value),
-              ),
-              _buildDivider(),
-              _buildToggleRow(
-                Icons.water_drop,
-                'Water alerts',
-                'Notify when water is unsafe',
-                waterAlerts,
-                (value) => setState(() => waterAlerts = value),
-              ),
-            ]),
-
-            const SizedBox(height: 12),
-
-            // Display section
-            _buildSectionLabel('DISPLAY'),
-            _buildSettingsCard([
-              _buildToggleRow(
-                Icons.dark_mode,
-                'Dark mode',
-                'Easy on eyes at night',
-                darkMode,
-                (value) => setState(() => darkMode = value),
               ),
             ]),
 

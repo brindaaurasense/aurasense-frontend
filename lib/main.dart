@@ -6,6 +6,7 @@ import 'search_screen.dart';
 import 'settings_screen.dart';
 import 'loading_screen.dart';
 import 'location_service.dart';
+import 'translations.dart';
 
 void main() {
   runApp(const AuraSenseApp());
@@ -327,11 +328,11 @@ String? getNearestMajorCity(String cityName) {
 
                       const SizedBox(height: 16),
 
-                      const Align(
+                      Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'LIVE READINGS',
-                          style: TextStyle(
+                          AppTranslations.t('live_readings'),
+                          style: const TextStyle(
                             color: Color(0xFF0F6E56),
                             fontSize: 11,
                             fontWeight: FontWeight.w500,
@@ -353,7 +354,7 @@ String? getNearestMajorCity(String cityName) {
                         children: [
                           _buildTile(
                             context,
-                            'Air Quality',
+                            AppTranslations.t('air_quality'),
                             aqiCondition.replaceAll(
                                 RegExp(r'[^\x00-\x7F]'), '').trim(),
                             'AQI $aqiValue',
@@ -370,7 +371,7 @@ String? getNearestMajorCity(String cityName) {
                           ),
                           _buildTile(
                             context,
-                            'Temperature',
+                            AppTranslations.t('temperature'),
                             '$temp°C',
                             tempCondition.replaceAll(
                                 RegExp(r'[^\x00-\x7F]'), '').trim(),
@@ -387,7 +388,7 @@ String? getNearestMajorCity(String cityName) {
                           ),
                           _buildTile(
                             context,
-                            'Humidity',
+                            AppTranslations.t('humidity'),
                             '$humidity%',
                             humCondition.replaceAll(
                                 RegExp(r'[^\x00-\x7F]'), '').trim(),
@@ -404,7 +405,7 @@ String? getNearestMajorCity(String cityName) {
                           ),
                           _buildTile(
                             context,
-                            'Wind Speed',
+                            AppTranslations.t('wind_speed'),
                             '$wind km/h',
                             'Current wind',
                             Icons.air,
@@ -466,7 +467,7 @@ String? getNearestMajorCity(String cityName) {
                     ],
                   ),
                 ),
-
+        
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFF085041),
         selectedItemColor: const Color(0xFFE1F5EE),
@@ -481,7 +482,7 @@ String? getNearestMajorCity(String cityName) {
                 builder: (context) => const SearchScreen(),
               ),
             );
-          } else if (index == 3) {
+          } else if (index == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -492,22 +493,18 @@ String? getNearestMajorCity(String cityName) {
             setState(() => currentIndex = index);
           }
         },
-        items: const [
+       items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Icon(Icons.home),
+            label: AppTranslations.t('home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: const Icon(Icons.search),
+            label: AppTranslations.t('search'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Map',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings),
+            label: AppTranslations.t('settings'),
           ),
         ],
       ),
