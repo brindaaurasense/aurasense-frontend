@@ -349,7 +349,7 @@ final List<String> popularCities = [
             Icon(icon, color: const Color(0xFF0F6E56), size: 16),
             const SizedBox(width: 10),
             Expanded(
-              child: Text(city,
+              child: Text(AppTranslations.city(city),
                   style: const TextStyle(
                       color: Color(0xFF085041), fontSize: 13)),
             ),
@@ -402,7 +402,7 @@ final List<String> popularCities = [
                 children: [
                   Expanded(
                     child: Text(
-                      cityName,
+                      AppTranslations.city(cityName),
                       style: const TextStyle(
                           color: Color(0xFFE1F5EE),
                           fontSize: 18,

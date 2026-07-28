@@ -217,8 +217,18 @@ String? getNearestMajorCity(String cityName) {
                 fontWeight: FontWeight.w500,
               ),
             ),
+            if (AppTranslations.currentLanguage == 'தமிழ் Tamil')
+              Text(
+                AppTranslations.t('app_name'),
+                style: const TextStyle(
+                  color: Color(0xFFA8D5C8),
+                  fontSize: 11,
+                ),
+              ),
             Text(
-              cityData?['city'] ?? 'Unable to detect location',
+              cityData?['city'] != null
+                  ? AppTranslations.city(cityData!['city'])
+                  : 'Unable to detect location',
               style: const TextStyle(
                 color: Color(0xFF9FE1CB),
                 fontSize: 12,

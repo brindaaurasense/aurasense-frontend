@@ -97,4 +97,24 @@ class AppTranslations {
   static String t(String key) {
     return _translations[currentLanguage]?[key] ?? _translations['English']![key] ?? key;
   }
+
+  static final Map<String, String> _cityNames = {
+    'Madurai': 'மதுரை',
+    'Coimbatore': 'கோயம்புத்தூர்',
+    'Chennai': 'சென்னை',
+    'Kochi': 'கொச்சி',
+    'Thiruvananthapuram': 'திருவனந்தபுரம்',
+    'Bengaluru': 'பெங்களூரு',
+    'Hyderabad': 'ஹைதராபாத்',
+    'Tamil Nadu': 'தமிழ்நாடு',
+    'Kerala': 'கேரளா',
+    'Karnataka': 'கர்நாடகா',
+    'Andhra': 'ஆந்திரா',
+    'Telangana': 'தெலங்காணா',
+  };
+
+  static String city(String englishName) {
+    if (currentLanguage != 'தமிழ் Tamil') return englishName;
+    return _cityNames[englishName] ?? englishName;
+  }
 }
