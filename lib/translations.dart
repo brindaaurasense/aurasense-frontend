@@ -27,6 +27,7 @@ class AppTranslations {
       'humidity_tip': 'Wear light cotton clothing on humid days. Keep yourself cool with fans or AC and stay indoors during peak afternoon hours.',
       'wind_meaning': 'Wind speed shows how fast the air is moving. Good wind helps disperse pollution and makes the temperature feel cooler. Coastal cities benefit from sea breeze.',
       'wind_tip': 'Enjoy outdoor activities when wind is moderate. Strong winds above 40 km/h may carry dust — keep windows closed.',
+      'search_hint': 'Search city or town...',
     },
     'தமிழ் Tamil': {
       'app_name': 'ஆரா சென்ஸ்',
@@ -53,6 +54,7 @@ class AppTranslations {
       'humidity_tip': 'ஈரப்பதம் நிறைந்த நாட்களில் இலகுவான பருத்தி ஆடைகளை அணியவும். மின்விசிறிகள் அல்லது ஏசி மூலம் குளிர்ச்சியாக இருங்கள், மதிய நேரங்களில் வீட்டிற்குள் இருங்கள்.',
       'wind_meaning': 'காற்றின் வேகம் காற்று எவ்வளவு வேகமாக நகர்கிறது என்பதைக் காட்டுகிறது. நல்ல காற்று மாசுவை பரப்பி வெப்பநிலையை குளிர்ச்சியாக உணர வைக்கிறது. கடலோர நகரங்கள் கடல் காற்றால் பயனடைகின்றன.',
       'wind_tip': 'காற்று மிதமாக இருக்கும்போது வெளிப்புற செயல்பாடுகளை அனுபவிக்கவும். 40 கிமீ/மணிக்கு மேல் வலுவான காற்று தூசியை கொண்டு வரலாம் — ஜன்னல்களை மூடி வைக்கவும்.',
+      'search_hint': 'நகரம் அல்லது ஊரைத் தேடுங்கள்...',
     },
   };
 

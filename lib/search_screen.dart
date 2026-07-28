@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'translations.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -136,7 +137,7 @@ final List<String> popularCities = [
             searchCity(nearestCity);
           } else {
             setState(() {
-              errorMessage = 'City not found! Try another city.';
+              errorMessage = AppTranslations.t('city_not_found');
               isLoading    = false;
             });
           }
@@ -179,9 +180,9 @@ final List<String> popularCities = [
       backgroundColor: const Color(0xFFE8F6F1),
       appBar: AppBar(
         backgroundColor: const Color(0xFF085041),
-        title: const Text(
-          'Search Location',
-          style: TextStyle(
+        title: Text(
+          AppTranslations.t('search_location'),
+          style: const TextStyle(
             color: Color(0xFFE1F5EE),
             fontSize: 15,
             fontWeight: FontWeight.w500,
@@ -208,9 +209,9 @@ final List<String> popularCities = [
                   Expanded(
                     child: TextField(
                       controller: _searchController,
-                      decoration: const InputDecoration(
-                        hintText: 'Search city or town...',
-                        hintStyle: TextStyle(
+                      decoration: InputDecoration(
+                        hintText: AppTranslations.t('search_hint'),
+                        hintStyle: const TextStyle(
                           color: Color(0xFF9FE1CB),
                           fontSize: 13,
                         ),
