@@ -185,9 +185,9 @@ class DetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'CONDITIONS IN OTHER STATES',
-                    style: TextStyle(
+                  Text(
+                    AppTranslations.t('conditions_other_states'),
+                    style: const TextStyle(
                       color: Color(0xFF0F6E56),
                       fontSize: 10,
                       fontWeight: FontWeight.w500,

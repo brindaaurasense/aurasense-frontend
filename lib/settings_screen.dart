@@ -53,9 +53,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: const Color(0xFFE8F6F1),
       appBar: AppBar(
         backgroundColor: const Color(0xFF085041),
-        title: const Text(
-          'Settings',
-          style: TextStyle(
+        title: Text(
+          AppTranslations.t('settings'),
+          style: const TextStyle(
             color: Color(0xFFE1F5EE),
             fontSize: 15,
             fontWeight: FontWeight.w500,
@@ -80,21 +80,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const Icon(Icons.notifications_off,
                       color: Color(0xFF085041), size: 24),
                   const SizedBox(width: 12),
-                  const Expanded(
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Enable GPS alerts',
-                          style: TextStyle(
+                          AppTranslations.t('enable_gps_alerts'),
+                          style: const TextStyle(
                             color: Color(0xFF085041),
                             fontSize: 13,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         Text(
-                          'Sign in with phone to get live alerts',
-                          style: TextStyle(
+                          AppTranslations.t('sign_in_subtitle'),
+                          style: const TextStyle(
                             color: Color(0xFF0F6E56),
                             fontSize: 11,
                           ),
@@ -109,9 +109,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       color: const Color(0xFF085041),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Text(
-                      'Sign in',
-                      style: TextStyle(
+                    child: Text(
+                      AppTranslations.t('sign_in'),
+                      style: const TextStyle(
                         color: Color(0xFFE1F5EE),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -125,12 +125,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 16),
 
             // Language section
-            _buildSectionLabel('LANGUAGE'),
+            _buildSectionLabel(AppTranslations.t('language_section')),
             _buildSettingsCard([
               _buildDropdownRow(
                 Icons.language,
-                'App language',
-                'Choose your preferred language',
+                AppTranslations.t('app_language'),
+                AppTranslations.t('choose_language'),
                 selectedLanguage,
                 languages,
                 _changeLanguage,
@@ -140,12 +140,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 12),
 
             // Alerts section
-            _buildSectionLabel('ALERTS'),
+            _buildSectionLabel(AppTranslations.t('alerts_section')),
             _buildSettingsCard([
               _buildToggleRow(
                 Icons.air,
-                'Pollution alerts',
-                'Notify when AQI is poor',
+                AppTranslations.t('pollution_alerts'),
+                AppTranslations.t('pollution_alerts_subtitle'),
                 pollutionAlerts,
                 (value) => setState(() => pollutionAlerts = value),
               ),
@@ -154,17 +154,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 12),
 
             // About section
-            _buildSectionLabel('ABOUT'),
+            _buildSectionLabel(AppTranslations.t('about_section')),
             _buildSettingsCard([
               _buildArrowRow(
                 Icons.info_outline,
-                'About AuraSense',
+                AppTranslations.t('about_aurasense'),
                 '',
               ),
               _buildDivider(),
               _buildArrowRow(
                 Icons.shield_outlined,
-                'Privacy policy',
+                AppTranslations.t('privacy_policy'),
                 '',
               ),
             ]),
@@ -174,7 +174,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             // WAQI Attribution
             Center(
               child: Text(
-                'Air quality data provided by the World Air Quality\nIndex project (waqi.info)',
+                AppTranslations.t('waqi_attribution'),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color(0xFF0F6E56),
@@ -188,7 +188,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             // Version
             Center(
               child: Text(
-                'AuraSense v1.0.0 · Made for South India 🌿',
+                AppTranslations.t('app_version'),
                 style: const TextStyle(
                   color: Color(0xFF0F6E56),
                   fontSize: 11,
