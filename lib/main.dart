@@ -235,8 +235,6 @@ String? getNearestMajorCity(String cityName) {
                 fetchData();
               },
             ),
-          const Icon(Icons.search,        color: Color(0xFF9FE1CB)),
-          const SizedBox(width: 16),
           const Icon(Icons.notifications, color: Color(0xFF9FE1CB)),
           const SizedBox(width: 16),
           const Icon(Icons.person,        color: Color(0xFF9FE1CB)),
