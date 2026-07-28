@@ -360,13 +360,8 @@ String? getNearestMajorCity(String cityName) {
                             'AQI $aqiValue',
                             Icons.air,
                             getConditionColor(aqiCondition),
-                            'Air Quality Index measures how clean or polluted '
-                            'the air is. Higher values mean more pollution and '
-                            'greater health risks for everyone especially '
-                            'children and elderly.',
-                            'Check AQI before going outside. If AQI is above '
-                            '100 wear a mask outdoors and avoid heavy exercise '
-                            'outside.',
+                            AppTranslations.t('aqi_meaning'),
+                            AppTranslations.t('aqi_tip'),
                             displayCity,
                           ),
                           _buildTile(
@@ -377,13 +372,8 @@ String? getNearestMajorCity(String cityName) {
                                 RegExp(r'[^\x00-\x7F]'), '').trim(),
                             Icons.thermostat,
                             getConditionColor(tempCondition),
-                            'Current temperature. South India '
-                            'experiences high heat especially between March '
-                            'and June. High temperature combined with humidity '
-                            'makes it feel even hotter.',
-                            'Stay hydrated and drink water every 30 minutes. '
-                            'Avoid going outside between 11am and 4pm on '
-                            'hot days.',
+                            AppTranslations.t('temp_meaning'),
+                            AppTranslations.t('temp_tip'),
                             displayCity,
                           ),
                           _buildTile(
@@ -394,13 +384,8 @@ String? getNearestMajorCity(String cityName) {
                                 RegExp(r'[^\x00-\x7F]'), '').trim(),
                             Icons.water_drop,
                             getConditionColor(humCondition),
-                            'Humidity is the amount of moisture in the air. '
-                            'High humidity makes the temperature feel much '
-                            'hotter than it actually is. South India is known '
-                            'for its high coastal humidity.',
-                            'Wear light cotton clothing on humid days. Keep '
-                            'yourself cool with fans or AC and stay indoors '
-                            'during peak afternoon hours.',
+                            AppTranslations.t('humidity_meaning'),
+                            AppTranslations.t('humidity_tip'),
                             displayCity,
                           ),
                           _buildTile(
@@ -410,13 +395,8 @@ String? getNearestMajorCity(String cityName) {
                             'Current wind',
                             Icons.air,
                             const Color(0xFF085041),
-                            'Wind speed shows how fast the air is moving. '
-                            'Good wind helps disperse pollution and makes '
-                            'the temperature feel cooler. Coastal cities '
-                            'benefit from sea breeze.',
-                            'Enjoy outdoor activities when wind is moderate. '
-                            'Strong winds above 40 km/h may carry dust — '
-                            'keep windows closed.',
+                            AppTranslations.t('wind_meaning'),
+                            AppTranslations.t('wind_tip'),
                             displayCity,
                           ),
                         ],
