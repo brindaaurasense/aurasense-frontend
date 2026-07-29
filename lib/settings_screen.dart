@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'translations.dart';
+import 'about_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -36,6 +38,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       selectedLanguage = value;
       AppTranslations.currentLanguage = value;
     });
+  }
+
+  Future<void> _openPrivacyPolicy() async {
+    final url = Uri.parse('https://brindaaurasense.github.io/aurasense-backend/privacy-policy.html');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    }
   }
 
   final List<String> languages = [
@@ -160,12 +169,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Icons.info_outline,
                 AppTranslations.t('about_aurasense'),
                 '',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AboutScreen(),
+                    ),
+                  );
+                },
               ),
               _buildDivider(),
               _buildArrowRow(
                 Icons.shield_outlined,
                 AppTranslations.t('privacy_policy'),
                 '',
+                onTap: _openPrivacyPolicy,
               ),
             ]),
 
@@ -350,35 +368,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget _buildArrowRow(
     IconData icon,
     String title,
-    String subtitle,
-  ) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      child: Row(
-        children: [
-          Container(
-            width: 32,
-            height: 32,
-            decoration: BoxDecoration(
-              color: const Color(0xFFE1F5EE),
-              borderRadius: BorderRadius.circular(8),
+    String subtitle, {
+    VoidCallback? onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        child: Row(
+          children: [
+            Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                color: const Color(0xFFE1F5EE),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Icon(icon, color: const Color(0xFF085041), size: 18),
             ),
-            child: Icon(icon, color: const Color(0xFF085041), size: 18),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(
-                color: Color(0xFF085041),
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  color: Color(0xFF085041),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          ),
-          const Icon(Icons.arrow_forward,
-              color: Color(0xFF9FE1CB), size: 18),
-        ],
+            const Icon(Icons.arrow_forward,
+                color: Color(0xFF9FE1CB), size: 18),
+          ],
+        ),
       ),
     );
   }
