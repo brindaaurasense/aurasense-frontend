@@ -227,6 +227,51 @@ class AppTranslations {
       'conditions_other_states': 'ಇತರ ರಾಜ್ಯಗಳಲ್ಲಿ ಪರಿಸ್ಥಿತಿಗಳು',
     },
 
+    'മലയാളം Malayalam': {
+      'app_name': 'ഓറാസെൻസ്',
+      'good': 'നല്ലത്',
+      'moderate': 'മിതമായത്',
+      'poor': 'മോശം',
+      'air_quality': 'വായു ഗുണനിലവാരം',
+      'temperature': 'താപനില',
+      'humidity': 'ഈർപ്പം',
+      'wind_speed': 'കാറ്റിന്റെ വേഗത',
+      'overall_status': 'മൊത്തത്തിലുള്ള നില',
+      'live_readings': 'തത്സമയ റീഡിംഗുകൾ',
+      'home': 'ഹോം',
+      'search': 'തിരയുക',
+      'settings': 'ക്രമീകരണങ്ങൾ',
+      'right_now': 'ഇപ്പോൾ',
+      'what_this_means': 'ഇതിനർത്ഥം എന്താണ്',
+      'updated_just_now': 'ഇപ്പോൾ അപ്ഡേറ്റ് ചെയ്തു',
+      'aqi_meaning': 'വായു ഗുണനിലവാര സൂചിക വായു എത്രത്തോളം ശുദ്ധമോ മലിനമോ ആണെന്ന് അളക്കുന്നു. ഉയർന്ന മൂല്യങ്ങൾ കൂടുതൽ മലിനീകരണവും എല്ലാവർക്കും, പ്രത്യേകിച്ച് കുട്ടികൾക്കും പ്രായമായവർക്കും കൂടുതൽ ആരോഗ്യ അപകടസാധ്യതകളും സൂചിപ്പിക്കുന്നു.',
+      'aqi_tip': 'പുറത്തിറങ്ങുന്നതിന് മുമ്പ് AQI പരിശോധിക്കുക. AQI 100-ൽ കൂടുതലാണെങ്കിൽ പുറത്ത് മാസ്ക് ധരിക്കുകയും കഠിനമായ വ്യായാമം ഒഴിവാക്കുകയും ചെയ്യുക.',
+      'temp_meaning': 'നിലവിലെ താപനില. ദക്ഷിണേന്ത്യയിൽ പ്രത്യേകിച്ച് മാർച്ച് മുതൽ ജൂൺ വരെ ഉയർന്ന ചൂട് അനുഭവപ്പെടുന്നു. ഈർപ്പത്തോടൊപ്പം ഉയർന്ന താപനില കൂടുതൽ ചൂടായി അനുഭവപ്പെടും.',
+      'temp_tip': 'ഓരോ 30 മിനിറ്റിലും വെള്ളം കുടിക്കുക. ചൂടുള്ള ദിവസങ്ങളിൽ രാവിലെ 11 മുതൽ വൈകുന്നേരം 4 വരെ പുറത്തിറങ്ങുന്നത് ഒഴിവാക്കുക.',
+      'humidity_meaning': 'ഈർപ്പം എന്നത് വായുവിലെ ജലബാഷ്പത്തിന്റെ അളവാണ്. ഉയർന്ന ഈർപ്പം താപനില യഥാർത്ഥത്തിലുള്ളതിനേക്കാൾ കൂടുതൽ ചൂടായി അനുഭവപ്പെടുത്തുന്നു. ദക്ഷിണേന്ത്യ അതിന്റെ ഉയർന്ന തീരദേശ ഈർപ്പത്തിന് പേരുകേട്ടതാണ്.',
+      'humidity_tip': 'ഈർപ്പമുള്ള ദിവസങ്ങളിൽ ഭാരം കുറഞ്ഞ കോട്ടൺ വസ്ത്രങ്ങൾ ധരിക്കുക. ഫാൻ അല്ലെങ്കിൽ എസി ഉപയോഗിച്ച് തണുപ്പായി തുടരുകയും ഉച്ചസമയത്ത് വീടിനുള്ളിൽ തുടരുകയും ചെയ്യുക.',
+      'wind_meaning': 'കാറ്റിന്റെ വേഗത കാറ്റ് എത്ര വേഗത്തിൽ നീങ്ങുന്നു എന്ന് കാണിക്കുന്നു. നല്ല കാറ്റ് മലിനീകരണം വ്യാപിപ്പിക്കാൻ സഹായിക്കുകയും താപനില തണുപ്പായി അനുഭവപ്പെടുത്തുകയും ചെയ്യുന്നു. തീരദേശ നഗരങ്ങൾക്ക് കടൽക്കാറ്റിൽ നിന്ന് പ്രയോജനം ലഭിക്കുന്നു.',
+      'wind_tip': 'കാറ്റ് മിതമായിരിക്കുമ്പോൾ പുറത്തുള്ള പ്രവർത്തനങ്ങൾ ആസ്വദിക്കുക. 40 കി.മീ/മണിക്കൂറിൽ കൂടുതൽ ശക്തമായ കാറ്റ് പൊടി കൊണ്ടുവന്നേക്കാം — ജനലുകൾ അടച്ചിടുക.',
+      'search_hint': 'നഗരമോ പട്ടണമോ തിരയുക...',
+      'search_location': 'സ്ഥലം തിരയുക',
+      'city_not_found': 'നഗരം കണ്ടെത്തിയില്ല! മറ്റൊരു നഗരം ശ്രമിക്കുക.',
+      'enable_gps_alerts': 'GPS അലേർട്ടുകൾ പ്രവർത്തനക്ഷമമാക്കുക',
+      'sign_in_subtitle': 'തത്സമയ അലേർട്ടുകൾ ലഭിക്കാൻ ഫോൺ ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യുക',
+      'sign_in': 'സൈൻ ഇൻ',
+      'language_section': 'ഭാഷ',
+      'app_language': 'ആപ്പ് ഭാഷ',
+      'choose_language': 'നിങ്ങളുടെ ഇഷ്ട ഭാഷ തിരഞ്ഞെടുക്കുക',
+      'alerts_section': 'അലേർട്ടുകൾ',
+      'pollution_alerts': 'മലിനീകരണ അലേർട്ടുകൾ',
+      'pollution_alerts_subtitle': 'AQI മോശമാകുമ്പോൾ അറിയിക്കുക',
+      'about_section': 'വിവരം',
+      'about_aurasense': 'ഓറാസെൻസിനെക്കുറിച്ച്',
+      'privacy_policy': 'സ്വകാര്യതാ നയം',
+      'waqi_attribution': 'വായു ഗുണനിലവാര ഡാറ്റ World Air Quality\nIndex പ്രോജക്റ്റ് നൽകുന്നത് (waqi.info)',
+      'app_version': 'ഓറാസെൻസ് v1.0.0 · ദക്ഷിണേന്ത്യക്കായി നിർമ്മിച്ചത് 🌿',
+      'conditions_other_states': 'മറ്റ് സംസ്ഥാനങ്ങളിലെ അവസ്ഥകൾ',
+    },
+
   };
 
   static String t(String key) {
@@ -293,6 +338,21 @@ class AppTranslations {
     'Telangana': 'ತೆಲಂಗಾಣ',
   };
 
+  static final Map<String, String> _cityNamesMalayalam = {
+    'Madurai': 'മധുര',
+    'Coimbatore': 'കോയമ്പത്തൂർ',
+    'Chennai': 'ചെന്നൈ',
+    'Kochi': 'കൊച്ചി',
+    'Thiruvananthapuram': 'തിരുവനന്തപുരം',
+    'Bengaluru': 'ബെംഗളൂരു',
+    'Hyderabad': 'ഹൈദരാബാദ്',
+    'Tamil Nadu': 'തമിഴ്നാട്',
+    'Kerala': 'കേരളം',
+    'Karnataka': 'കർണാടക',
+    'Andhra': 'ആന്ധ്രാപ്രദേശ്',
+    'Telangana': 'തെലങ്കാന',
+  };
+
   static String city(String englishName) {
     if (currentLanguage == 'தமிழ் Tamil') {
       return _cityNamesTamil[englishName] ?? englishName;
@@ -302,6 +362,8 @@ class AppTranslations {
       return _cityNamesTelugu[englishName] ?? englishName;
     } else if (currentLanguage == 'ಕನ್ನಡ Kannada') {
       return _cityNamesKannada[englishName] ?? englishName;
+    } else if (currentLanguage == 'മലയാളം Malayalam') {
+      return _cityNamesMalayalam[englishName] ?? englishName;
     }
     return englishName;
   }
