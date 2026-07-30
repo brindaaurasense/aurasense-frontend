@@ -30,7 +30,6 @@ class AppTranslations {
       'search_hint': 'Search city or town...',
       'search_location': 'Search Location',
       'city_not_found': 'City not found! Try another city.',
-      'settings': 'Settings',
       'enable_gps_alerts': 'Enable GPS alerts',
       'sign_in_subtitle': 'Sign in with phone to get live alerts',
       'sign_in': 'Sign in',
@@ -75,7 +74,6 @@ class AppTranslations {
       'search_hint': 'நகரம் அல்லது ஊரைத் தேடுங்கள்...',
       'search_location': 'இடத்தைத் தேடுங்கள்',
       'city_not_found': 'நகரம் கிடைக்கவில்லை! வேறு நகரத்தை முயற்சிக்கவும்.',
-      'settings': 'அமைப்புகள்',
       'enable_gps_alerts': 'GPS எச்சரிக்கைகளை இயக்கு',
       'sign_in_subtitle': 'நேரடி எச்சரிக்கைகளைப் பெற உள்நுழையவும்',
       'sign_in': 'உள்நுழை',
@@ -92,13 +90,58 @@ class AppTranslations {
       'app_version': 'ஆரா சென்ஸ் v1.0.0 · தென் இந்தியாவுக்காக உருவாக்கப்பட்டது 🌿',
       'conditions_other_states': 'மற்ற மாநிலங்களில் நிலைமைகள்',
     },
+
+    'हिन्दी Hindi': {
+      'app_name': 'औरासेंस',
+      'good': 'अच्छा',
+      'moderate': 'सामान्य',
+      'poor': 'खराब',
+      'air_quality': 'वायु गुणवत्ता',
+      'temperature': 'तापमान',
+      'humidity': 'नमी',
+      'wind_speed': 'हवा की गति',
+      'overall_status': 'समग्र स्थिति',
+      'live_readings': 'लाइव रीडिंग',
+      'home': 'होम',
+      'search': 'खोजें',
+      'settings': 'सेटिंग्स',
+      'right_now': 'अभी',
+      'what_this_means': 'इसका क्या मतलब है',
+      'updated_just_now': 'अभी अपडेट किया गया',
+      'aqi_meaning': 'वायु गुणवत्ता सूचकांक बताता है कि हवा कितनी साफ या प्रदूषित है। अधिक मान अधिक प्रदूषण और सभी के लिए, खासकर बच्चों और बुज़ुर्गों के लिए अधिक स्वास्थ्य जोखिम दर्शाते हैं।',
+      'aqi_tip': 'बाहर जाने से पहले AQI जांचें। यदि AQI 100 से अधिक है तो बाहर मास्क पहनें और कठिन व्यायाम से बचें।',
+      'temp_meaning': 'वर्तमान तापमान। दक्षिण भारत में खासकर मार्च से जून के बीच अधिक गर्मी रहती है। नमी के साथ मिलकर तापमान और भी अधिक महसूस होता है।',
+      'temp_tip': 'हर 30 मिनट में पानी पिएं। गर्म दिनों में सुबह 11 बजे से शाम 4 बजे के बीच बाहर जाने से बचें।',
+      'humidity_meaning': 'नमी हवा में मौजूद जलवाष्प की मात्रा है। अधिक नमी तापमान को वास्तविकता से अधिक गर्म महसूस कराती है। दक्षिण भारत अपनी तटीय नमी के लिए जाना जाता है।',
+      'humidity_tip': 'नमी वाले दिनों में हल्के सूती कपड़े पहनें। पंखे या AC से ठंडा रहें और दोपहर के समय घर के अंदर रहें।',
+      'wind_meaning': 'हवा की गति बताती है कि हवा कितनी तेज़ी से चल रही है। अच्छी हवा प्रदूषण को फैलाने में मदद करती है और तापमान को ठंडा महसूस कराती है। तटीय शहरों को समुद्री हवा से लाभ मिलता है।',
+      'wind_tip': 'जब हवा मध्यम हो तो बाहरी गतिविधियों का आनंद लें। 40 किमी/घंटा से अधिक तेज़ हवा धूल ला सकती है — खिड़कियां बंद रखें।',
+      'search_hint': 'शहर या कस्बा खोजें...',
+      'search_location': 'स्थान खोजें',
+      'city_not_found': 'शहर नहीं मिला! कोई और शहर आज़माएं।',
+      'enable_gps_alerts': 'GPS अलर्ट चालू करें',
+      'sign_in_subtitle': 'लाइव अलर्ट पाने के लिए फोन से साइन इन करें',
+      'sign_in': 'साइन इन करें',
+      'language_section': 'भाषा',
+      'app_language': 'ऐप भाषा',
+      'choose_language': 'अपनी पसंदीदा भाषा चुनें',
+      'alerts_section': 'अलर्ट',
+      'pollution_alerts': 'प्रदूषण अलर्ट',
+      'pollution_alerts_subtitle': 'AQI खराब होने पर सूचित करें',
+      'about_section': 'जानकारी',
+      'about_aurasense': 'औरासेंस के बारे में',
+      'privacy_policy': 'गोपनीयता नीति',
+      'waqi_attribution': 'वायु गुणवत्ता डेटा World Air Quality\nIndex प्रोजेक्ट द्वारा प्रदान किया गया (waqi.info)',
+      'app_version': 'औरासेंस v1.0.0 · दक्षिण भारत के लिए बनाया गया 🌿',
+      'conditions_other_states': 'अन्य राज्यों में स्थिति',
+    },
   };
 
   static String t(String key) {
     return _translations[currentLanguage]?[key] ?? _translations['English']![key] ?? key;
   }
 
-  static final Map<String, String> _cityNames = {
+  static final Map<String, String> _cityNamesTamil = {
     'Madurai': 'மதுரை',
     'Coimbatore': 'கோயம்புத்தூர்',
     'Chennai': 'சென்னை',
@@ -113,8 +156,27 @@ class AppTranslations {
     'Telangana': 'தெலங்காணா',
   };
 
+  static final Map<String, String> _cityNamesHindi = {
+    'Madurai': 'मदुरै',
+    'Coimbatore': 'कोयंबटूर',
+    'Chennai': 'चेन्नई',
+    'Kochi': 'कोच्चि',
+    'Thiruvananthapuram': 'तिरुवनंतपुरम',
+    'Bengaluru': 'बेंगलुरु',
+    'Hyderabad': 'हैदराबाद',
+    'Tamil Nadu': 'तमिलनाडु',
+    'Kerala': 'केरल',
+    'Karnataka': 'कर्नाटक',
+    'Andhra': 'आंध्र प्रदेश',
+    'Telangana': 'तेलंगाना',
+  };
+
   static String city(String englishName) {
-    if (currentLanguage != 'தமிழ் Tamil') return englishName;
-    return _cityNames[englishName] ?? englishName;
+    if (currentLanguage == 'தமிழ் Tamil') {
+      return _cityNamesTamil[englishName] ?? englishName;
+    } else if (currentLanguage == 'हिन्दी Hindi') {
+      return _cityNamesHindi[englishName] ?? englishName;
+    }
+    return englishName;
   }
 }

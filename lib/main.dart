@@ -420,35 +420,36 @@ String? getNearestMajorCity(String cityName) {
                           color: overallColor,
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Icon(Icons.check_circle,
-                                    color: Color(0xFFE1F5EE), size: 20),
-                                const SizedBox(height: 4),
-                                const Text(
-                                  'Overall Status',
-                                  style: TextStyle(
-                                    color: Color(0xFF9FE1CB),
-                                    fontSize: 11,
-                                  ),
-                                ),
-                                Text(
-                                  aqiCondition.replaceAll(
-                                      RegExp(r'[^\x00-\x7F]'), '').trim(),
-                                  style: const TextStyle(
-                                    color: Color(0xFFE1F5EE),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
+                            const Icon(Icons.check_circle,
+                                color: Color(0xFFE1F5EE), size: 20),
+                            const SizedBox(height: 4),
+                            const Text(
+                              'Overall Status',
+                              style: TextStyle(
+                                color: Color(0xFF9FE1CB),
+                                fontSize: 11,
+                              ),
                             ),
-                            const Icon(Icons.arrow_forward,
-                                color: Color(0xFFE1F5EE)),
+                            Text(
+                              aqiCondition.replaceAll(
+                                  RegExp(r'[^\x00-\x7F]'), '').trim(),
+                              style: const TextStyle(
+                                color: Color(0xFFE1F5EE),
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 6),
+                            const Text(
+                              'Fresh air, happy day — here\'s your quick health snapshot 🌿',
+                              style: TextStyle(
+                                color: Color(0xFF9FE1CB),
+                                fontSize: 11,
+                              ),
+                            ),
                           ],
                         ),
                       ),
