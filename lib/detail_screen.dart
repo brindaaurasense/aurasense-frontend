@@ -10,6 +10,7 @@ class DetailScreen extends StatelessWidget {
   final Color color;
   final IconData icon;
   final String cityName;
+  final String? extraMessage;
 
   const DetailScreen({
     super.key,
@@ -21,7 +22,18 @@ class DetailScreen extends StatelessWidget {
     required this.color,
     required this.icon,
     required this.cityName,
+    this.extraMessage,
   });
+
+  Color _getBadgeColor() {
+    if (condition.contains('Good')) return const Color(0xFF2E7D32);
+    if (condition.contains('Moderate')) return const Color(0xFFF9A825);
+    if (condition.contains('Poor') && !condition.contains('Hazardous')) {
+      return const Color(0xFFEF6C00);
+    }
+    if (condition.contains('Hazardous')) return const Color(0xFFC62828);
+    return Colors.black26;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +81,7 @@ class DetailScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 4),
                         decoration: BoxDecoration(
-                          color: Colors.black26,
+                          color: _getBadgeColor(),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
@@ -105,6 +117,37 @@ class DetailScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 12),
+
+            if (extraMessage != null) ...[
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE1F5EE),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: const Color(0xFF9FE1CB)),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.eco, color: Color(0xFF085041), size: 18),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        extraMessage!,
+                        style: const TextStyle(
+                          color: Color(0xFF085041),
+                          fontSize: 13,
+                          height: 1.5,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 10),
+            ],
 
             // What this means
             Container(

@@ -187,6 +187,20 @@ String? getNearestMajorCity(String cityName) {
     return const Color(0xFF085041);
   }
 
+  String getOverallMessage(String? condition) {
+    if (condition == null) return 'Checking today\'s air quality...';
+    if (condition.contains('Good')) {
+      return 'Enjoy outdoor activities. The air quality is healthy today.';
+    } else if (condition.contains('Moderate')) {
+      return 'Most people are safe. Sensitive individuals should reduce prolonged outdoor activity.';
+    } else if (condition.contains('Poor')) {
+      return 'Avoid prolonged outdoor exposure. Consider wearing a mask.';
+    } else if (condition.contains('Hazardous')) {
+      return 'Stay indoors as much as possible. Air quality is unhealthy for everyone.';
+    }
+    return 'Fresh air, happy day — here\'s your quick health snapshot 🌿';
+  }
+
   @override
   Widget build(BuildContext context) {
     final aqi     = cityData?['aqi'];
@@ -358,7 +372,7 @@ String? getNearestMajorCity(String cityName) {
                         physics: const NeverScrollableScrollPhysics(),
                         crossAxisSpacing: 8,
                         mainAxisSpacing: 8,
-                        childAspectRatio: 1.2,
+                        childAspectRatio: 1.0,
                         children: [
                           _buildTile(
                             context,
@@ -371,6 +385,7 @@ String? getNearestMajorCity(String cityName) {
                             AppTranslations.t('aqi_meaning'),
                             AppTranslations.t('aqi_tip'),
                             displayCity,
+                            extraMessage: getOverallMessage(aqiCondition),
                           ),
                           _buildTile(
                             context,
@@ -443,9 +458,9 @@ String? getNearestMajorCity(String cityName) {
                               ),
                             ),
                             const SizedBox(height: 6),
-                            const Text(
-                              'Fresh air, happy day — here\'s your quick health snapshot 🌿',
-                              style: TextStyle(
+                            Text(
+                              getOverallMessage(aqiCondition),
+                              style: const TextStyle(
                                 color: Color(0xFF9FE1CB),
                                 fontSize: 11,
                               ),
@@ -509,8 +524,9 @@ String? getNearestMajorCity(String cityName) {
     Color color,
     String meaning,
     String healthTip,
-    String cityName,
-  ) {
+    String cityName, {
+    String? extraMessage,
+  }) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -525,6 +541,7 @@ String? getNearestMajorCity(String cityName) {
               color     : color,
               icon      : icon,
               cityName  : cityName,
+              extraMessage: extraMessage,
             ),
           ),
         );
@@ -566,6 +583,16 @@ String? getNearestMajorCity(String cityName) {
                     fontSize: 10,
                   ),
                 ),
+                if (extraMessage != null) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    extraMessage,
+                    style: const TextStyle(
+                      color: Color(0xFF5DCAA5),
+                      fontSize: 9,
+                    ),
+                  ),
+                ],
               ],
             ),
           ],
