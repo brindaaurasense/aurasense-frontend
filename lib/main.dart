@@ -7,6 +7,8 @@ import 'settings_screen.dart';
 import 'loading_screen.dart';
 import 'location_service.dart';
 import 'translations.dart';
+import 'login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const AuraSenseApp());
@@ -282,7 +284,48 @@ String? getNearestMajorCity(String cityName) {
             ),
           const Icon(Icons.notifications, color: Color(0xFF9FE1CB)),
           const SizedBox(width: 16),
-          const Icon(Icons.person,        color: Color(0xFF9FE1CB)),
+          IconButton(
+            icon: const Icon(Icons.person, color: Color(0xFF9FE1CB)),
+            onPressed: () async {
+              final prefs = await SharedPreferences.getInstance();
+              final token = prefs.getString('access_token');
+
+              if (token != null) {
+                // Already logged in - show a simple confirmation for now
+                if (context.mounted) {
+                  final email = prefs.getString('user_email') ?? '';
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text('Signed in'),
+                      content: Text('Logged in as $email'),
+                      actions: [
+                        TextButton(
+                          onPressed: () async {
+                            await prefs.remove('access_token');
+                            await prefs.remove('user_email');
+                            if (context.mounted) Navigator.pop(context);
+                          },
+                          child: const Text('Sign out'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('Close'),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              } else {
+                if (context.mounted) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  );
+                }
+              }
+            },
+          ),
           const SizedBox(width: 16),
         ],
       ),
