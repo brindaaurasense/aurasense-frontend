@@ -187,6 +187,19 @@ String? getNearestMajorCity(String cityName) {
     return const Color(0xFF085041);
   }
 
+  String getGreeting() {
+    final hour = DateTime.now().hour;
+    if (hour >= 5 && hour < 12) {
+      return '☀️ Good Morning';
+    } else if (hour >= 12 && hour < 17) {
+      return '🌤️ Good Afternoon';
+    } else if (hour >= 17 && hour < 21) {
+      return '🌇 Good Evening';
+    } else {
+      return '🌙 Good Night';
+    }
+  }
+
   String getOverallMessage(String? condition) {
     if (condition == null) return 'Checking today\'s air quality...';
     if (condition.contains('Good')) {
@@ -210,6 +223,7 @@ String? getNearestMajorCity(String cityName) {
     final displayCity   = cityData?['city']?.toString() ?? 'Unknown';
     final aqiCondition  = aqi?['condition'] ?? 'Loading...';
     final temp          = weather?['temperature']?.toString() ?? '--';
+    final feelsLike      = weather?['feels_like']?.toString() ?? '--';
     final tempCondition = weather?['temp_condition'] ?? '';
     final humidity      = weather?['humidity']?.toString() ?? '--';
     final humCondition  = weather?['humidity_condition'] ?? '';
@@ -229,6 +243,13 @@ String? getNearestMajorCity(String cityName) {
                 color: Color(0xFFE1F5EE),
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
+              ),
+            ),
+            Text(
+              getGreeting(),
+              style: const TextStyle(
+                color: Color(0xFFA8D5C8),
+                fontSize: 11,
               ),
             ),
             if (AppTranslations.currentLanguage == 'தமிழ் Tamil')
@@ -398,6 +419,7 @@ String? getNearestMajorCity(String cityName) {
                             AppTranslations.t('temp_meaning'),
                             AppTranslations.t('temp_tip'),
                             displayCity,
+                            extraMessage: '🌡️ Feels like $feelsLike°C',
                           ),
                           _buildTile(
                             context,
