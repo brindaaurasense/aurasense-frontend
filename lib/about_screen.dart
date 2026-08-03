@@ -59,7 +59,7 @@ class AboutScreen extends StatelessWidget {
               '• Live weather data — temperature, humidity, wind speed\n'
               '• GPS-based automatic city detection\n'
               '• Search any city or town\n'
-              '• Available in English and Tamil',
+              '• Available in English, Hindi, and major South Indian languages',
             ),
             _buildSection(
               'Data Sources',
