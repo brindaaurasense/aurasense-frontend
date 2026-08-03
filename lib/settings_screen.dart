@@ -55,6 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     'ಕನ್ನಡ Kannada',
     'മലയാളം Malayalam',
     'हिन्दी Hindi',
+    'اردو Urdu',
   ];
 
   @override

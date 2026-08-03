@@ -282,7 +282,69 @@ String? getNearestMajorCity(String cityName) {
                 fetchData();
               },
             ),
-          const Icon(Icons.notifications, color: Color(0xFF9FE1CB)),
+          IconButton(
+            icon: const Icon(Icons.notifications, color: Color(0xFF9FE1CB)),
+            onPressed: () async {
+              final prefs = await SharedPreferences.getInstance();
+              final email = prefs.getString('user_email');
+
+              if (email == null) {
+                if (context.mounted) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  );
+                }
+                return;
+              }
+
+              try {
+                final statusResponse = await http.get(
+                  Uri.parse('https://aurasense-backend-4ye4.onrender.com/user-status/$email'),
+                );
+                final statusData = json.decode(statusResponse.body);
+                bool currentOptIn = statusData['pollution_alerts_opt_in'] ?? false;
+
+                if (context.mounted) {
+                  showDialog(
+                    context: context,
+                    builder: (context) => StatefulBuilder(
+                      builder: (context, setDialogState) => AlertDialog(
+                        title: const Text('Pollution Alerts'),
+                        content: SwitchListTile(
+                          title: const Text('Notify me when AQI is poor'),
+                          value: currentOptIn,
+                          onChanged: (value) async {
+                            setDialogState(() => currentOptIn = value);
+                            await http.post(
+                              Uri.parse('https://aurasense-backend-4ye4.onrender.com/update-alerts'),
+                              headers: {'Content-Type': 'application/json'},
+                              body: json.encode({
+                                'email': email,
+                                'pollution_alerts_opt_in': value,
+                              }),
+                            );
+                          },
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('Done'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+              } catch (e) {
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Could not load alert settings')),
+                  );
+                }
+              }
+            },
+          ),
           const SizedBox(width: 16),
           IconButton(
             icon: const Icon(Icons.person, color: Color(0xFF9FE1CB)),

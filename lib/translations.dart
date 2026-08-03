@@ -137,6 +137,51 @@ class AppTranslations {
       'conditions_other_states': 'अन्य राज्यों में स्थिति',
     },
 
+    'اردو Urdu': {
+      'app_name': 'آئورا سینس',
+      'good': 'اچھا',
+      'moderate': 'درمیانہ',
+      'poor': 'خراب',
+      'air_quality': 'ہوا کا معیار',
+      'temperature': 'درجہ حرارت',
+      'humidity': 'نمی',
+      'wind_speed': 'ہوا کی رفتار',
+      'overall_status': 'مجموعی صورتحال',
+      'live_readings': 'لائیو ریڈنگز',
+      'home': 'ہوم',
+      'search': 'تلاش',
+      'settings': 'ترتیبات',
+      'right_now': 'ابھی',
+      'what_this_means': 'اس کا مطلب کیا ہے',
+      'updated_just_now': 'ابھی اپ ڈیٹ کیا گیا',
+      'aqi_meaning': 'ہوا کے معیار کا اشاریہ یہ بتاتا ہے کہ ہوا کتنی صاف یا آلودہ ہے۔ زیادہ اقدار زیادہ آلودگی اور خاص طور پر بچوں اور بزرگوں کے لیے زیادہ صحت کے خطرات کی نشاندہی کرتی ہیں۔',
+      'aqi_tip': 'باہر جانے سے پہلے AQI چیک کریں۔ اگر AQI 100 سے زیادہ ہو تو باہر ماسک پہنیں اور سخت ورزش سے گریز کریں۔',
+      'temp_meaning': 'موجودہ درجہ حرارت۔ جنوبی ہندوستان میں خاص طور پر مارچ سے جون تک شدید گرمی ہوتی ہے۔ نمی کے ساتھ زیادہ درجہ حرارت مزید گرم محسوس ہوتا ہے۔',
+      'temp_tip': 'ہر 30 منٹ میں پانی پیئں۔ گرم دنوں میں صبح 11 بجے سے شام 4 بجے تک باہر جانے سے گریز کریں۔',
+      'humidity_meaning': 'نمی ہوا میں موجود پانی کے بخارات کی مقدار ہے۔ زیادہ نمی درجہ حرارت کو حقیقت سے زیادہ گرم محسوس کراتی ہے۔ جنوبی ہندوستان اپنی ساحلی نمی کے لیے مشہور ہے۔',
+      'humidity_tip': 'نم دنوں میں ہلکے سوتی کپڑے پہنیں۔ پنکھے یا AC سے ٹھنڈے رہیں اور دوپہر کے اوقات میں گھر کے اندر رہیں۔',
+      'wind_meaning': 'ہوا کی رفتار یہ ظاہر کرتی ہے کہ ہوا کتنی تیزی سے حرکت کر رہی ہے۔ اچھی ہوا آلودگی کو پھیلانے میں مدد دیتی ہے اور درجہ حرارت کو ٹھنڈا محسوس کراتی ہے۔ ساحلی شہروں کو سمندری ہوا سے فائدہ ہوتا ہے۔',
+      'wind_tip': 'جب ہوا معتدل ہو تو بیرونی سرگرمیوں سے لطف اندوز ہوں۔ 40 کلومیٹر فی گھنٹہ سے زیادہ تیز ہوائیں دھول لا سکتی ہیں — کھڑکیاں بند رکھیں۔',
+      'search_hint': 'شہر یا قصبہ تلاش کریں...',
+      'search_location': 'مقام تلاش کریں',
+      'city_not_found': 'شہر نہیں ملا! دوسرا شہر آزمائیں۔',
+      'enable_gps_alerts': 'GPS الرٹس فعال کریں',
+      'sign_in_subtitle': 'لائیو الرٹس حاصل کرنے کے لیے فون سے سائن ان کریں',
+      'sign_in': 'سائن ان',
+      'language_section': 'زبان',
+      'app_language': 'ایپ کی زبان',
+      'choose_language': 'اپنی پسندیدہ زبان منتخب کریں',
+      'alerts_section': 'الرٹس',
+      'pollution_alerts': 'آلودگی کے الرٹس',
+      'pollution_alerts_subtitle': 'جب AQI خراب ہو تو مطلع کریں',
+      'about_section': 'کے بارے میں',
+      'about_aurasense': 'آئورا سینس کے بارے میں',
+      'privacy_policy': 'رازداری کی پالیسی',
+      'waqi_attribution': 'ہوا کے معیار کا ڈیٹا World Air Quality\nIndex پروجیکٹ کی طرف سے فراہم کیا گیا (waqi.info)',
+      'app_version': 'آئورا سینس v1.0.0 · جنوبی ہندوستان کے لیے بنایا گیا 🌿',
+      'conditions_other_states': 'دوسری ریاستوں میں حالات',
+    },
+
     'తెలుగు Telugu': {
       'app_name': 'ఆరాసెన్స్',
       'good': 'బాగుంది',
@@ -353,6 +398,21 @@ class AppTranslations {
     'Telangana': 'തെലങ്കാന',
   };
 
+  static final Map<String, String> _cityNamesUrdu = {
+    'Madurai': 'مدورائی',
+    'Coimbatore': 'کوئمبٹور',
+    'Chennai': 'چنئی',
+    'Kochi': 'کوچی',
+    'Thiruvananthapuram': 'تھروانانتاپورم',
+    'Bengaluru': 'بنگلورو',
+    'Hyderabad': 'حیدرآباد',
+    'Tamil Nadu': 'تامل ناڈو',
+    'Kerala': 'کیرالہ',
+    'Karnataka': 'کرناٹک',
+    'Andhra': 'آندھرا پردیش',
+    'Telangana': 'تلنگانہ',
+  };
+
   static String city(String englishName) {
     if (currentLanguage == 'தமிழ் Tamil') {
       return _cityNamesTamil[englishName] ?? englishName;
@@ -364,6 +424,8 @@ class AppTranslations {
       return _cityNamesKannada[englishName] ?? englishName;
     } else if (currentLanguage == 'മലയാളം Malayalam') {
       return _cityNamesMalayalam[englishName] ?? englishName;
+    } else if (currentLanguage == 'اردو Urdu') {
+      return _cityNamesUrdu[englishName] ?? englishName;
     }
     return englishName;
   }
