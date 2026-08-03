@@ -240,7 +240,7 @@ String? getNearestMajorCity(String cityName) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'AuraSense',
+              'AuraSense 🌿',
               style: TextStyle(
                 color: Color(0xFFE1F5EE),
                 fontSize: 18,
