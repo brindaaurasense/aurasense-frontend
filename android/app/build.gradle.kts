@@ -48,6 +48,7 @@ android {
         }
     }
 
+    /*
     splits {
         abi {
             isEnable = true
@@ -56,6 +57,7 @@ android {
             isUniversalApk = false
         }
     }
+    */
 }
 
 kotlin {
