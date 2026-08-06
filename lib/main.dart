@@ -39,18 +39,28 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   Map<String, dynamic>? cityData;
   bool isLoading = true;
   String errorMessage = '';
   int currentIndex = 0;
   DateTime? lastUpdated;
+  late AnimationController _refreshController;
 
   @override
   void initState() {
     super.initState();
+    _refreshController = AnimationController(
+      duration: const Duration(milliseconds: 800),
+      vsync: this,
+    );
     fetchData();
+  }
+
+  @override
+  void dispose() {
+    _refreshController.dispose();
+    super.dispose();
   }
 
   Future<void> fetchData() async {
@@ -96,24 +106,28 @@ class _HomeScreenState extends State<HomeScreen> {
             cityData  = json.decode(fallback.body);
             isLoading = false;
             lastUpdated = DateTime.now();
+            _refreshController.stop();
           });
         } else {
           setState(() {
             cityData  = data;
             isLoading = false;
             lastUpdated = DateTime.now();
+            _refreshController.stop();
           });
         }
       } else {
         setState(() {
           errorMessage = 'Server error!';
           isLoading    = false;
+          _refreshController.stop();
         });
       }
     } catch (e) {
       setState(() {
         errorMessage = 'No internet connection. Please check your network and try again.';
         isLoading    = false;
+        _refreshController.stop();
       });
     }
   }
@@ -179,7 +193,8 @@ String? getNearestMajorCity(String cityName) {
   Color getConditionColor(String? condition) {
     if (condition == null) return const Color(0xFF085041);
     if (condition.contains('Good'))      return const Color(0xFF27500A);
-    if (condition.contains('Moderate'))  return const Color(0xFF0C447C);
+    if (condition.contains('Moderate'))  return const Color(0xFF7A6805);
+    if (condition.contains('Unhealthy')) return const Color(0xFF7A2005);
     if (condition.contains('Poor'))      return const Color(0xFF7A3205);
     if (condition.contains('Hazardous')) return const Color(0xFF501313);
     if (condition.contains('Pleasant'))  return const Color(0xFF27500A);
@@ -226,6 +241,20 @@ String? getNearestMajorCity(String cityName) {
       return 'Stay indoors as much as possible. Air quality is unhealthy for everyone.';
     }
     return 'Fresh air, happy day — here\'s your quick health snapshot 🌿';
+  }
+
+  String getHealthTip(String? condition) {
+    if (condition == null) return '';
+    if (condition.contains('Good')) {
+      return '🌿 Perfect day for a morning walk.';
+    } else if (condition.contains('Moderate')) {
+      return '🚶 Sensitive people should reduce outdoor activity.';
+    } else if (condition.contains('Poor')) {
+      return '😷 Consider wearing a mask outdoors today.';
+    } else if (condition.contains('Hazardous')) {
+      return '🏠 Best to stay indoors today.';
+    }
+    return '';
   }
 
   @override
@@ -295,14 +324,19 @@ String? getNearestMajorCity(String cityName) {
           ],
         ),
         actions: [
-          if (!isLoading)
-            IconButton(
-              icon: const Icon(Icons.refresh, color: Color(0xFF9FE1CB)),
-              onPressed: () {
-                setState(() => isLoading = true);
-                fetchData();
-              },
+          IconButton(
+            icon: RotationTransition(
+              turns: _refreshController,
+              child: const Icon(Icons.refresh, color: Color(0xFF9FE1CB)),
             ),
+            onPressed: isLoading
+                ? null
+                : () {
+                    _refreshController.repeat();
+                    setState(() => isLoading = true);
+                    fetchData();
+                  },
+          ),
           IconButton(
             icon: const Icon(Icons.notifications, color: Color(0xFF9FE1CB)),
             onPressed: () async {
@@ -318,7 +352,6 @@ String? getNearestMajorCity(String cityName) {
                 }
                 return;
               }
-
               try {
                 final statusResponse = await http.get(
                   Uri.parse('https://aurasense-backend-4ye4.onrender.com/user-status/$email'),
@@ -616,6 +649,18 @@ String? getNearestMajorCity(String cityName) {
                           ],
                         ),
                       ),
+                      const SizedBox(height: 12),
+                      if (getHealthTip(aqiCondition).isNotEmpty)
+                        Center(
+                          child: Text(
+                            getHealthTip(aqiCondition),
+                            style: const TextStyle(
+                              color: Color(0xFF085041),
+                              fontSize: 12,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),
