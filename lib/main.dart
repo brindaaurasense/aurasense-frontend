@@ -45,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isLoading = true;
   String errorMessage = '';
   int currentIndex = 0;
+  DateTime? lastUpdated;
 
   @override
   void initState() {
@@ -94,11 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() {
             cityData  = json.decode(fallback.body);
             isLoading = false;
+            lastUpdated = DateTime.now();
           });
         } else {
           setState(() {
             cityData  = data;
             isLoading = false;
+            lastUpdated = DateTime.now();
           });
         }
       } else {
@@ -202,6 +205,15 @@ String? getNearestMajorCity(String cityName) {
     }
   }
 
+  String formatUpdatedTime(DateTime time) {
+    int hour = time.hour;
+    final minute = time.minute.toString().padLeft(2, '0');
+    final period = hour >= 12 ? 'PM' : 'AM';
+    hour = hour % 12;
+    if (hour == 0) hour = 12;
+    return 'Updated $hour:$minute $period';
+  }
+
   String getOverallMessage(String? condition) {
     if (condition == null) return 'Checking today\'s air quality...';
     if (condition.contains('Good')) {
@@ -236,6 +248,7 @@ String? getNearestMajorCity(String cityName) {
       backgroundColor: const Color(0xFFE8F6F1),
       appBar: AppBar(
         backgroundColor: const Color(0xFF085041),
+        toolbarHeight: 80,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -251,7 +264,7 @@ String? getNearestMajorCity(String cityName) {
               getGreeting(),
               style: const TextStyle(
                 color: Color(0xFFA8D5C8),
-                fontSize: 11,
+                fontSize: 10,
               ),
             ),
             if (AppTranslations.currentLanguage == 'தமிழ் Tamil')
@@ -259,7 +272,7 @@ String? getNearestMajorCity(String cityName) {
                 AppTranslations.t('app_name'),
                 style: const TextStyle(
                   color: Color(0xFFA8D5C8),
-                  fontSize: 11,
+                  fontSize: 10,
                 ),
               ),
             Text(
@@ -268,9 +281,17 @@ String? getNearestMajorCity(String cityName) {
                   : 'Unable to detect location',
               style: const TextStyle(
                 color: Color(0xFF9FE1CB),
-                fontSize: 12,
+                fontSize: 10,
               ),
             ),
+            if (lastUpdated != null)
+              Text(
+                formatUpdatedTime(lastUpdated!),
+                style: const TextStyle(
+                  color: Color(0xFF5DCAA5),
+                  fontSize: 9,
+                ),
+              ),
           ],
         ),
         actions: [
@@ -429,13 +450,13 @@ String? getNearestMajorCity(String cityName) {
                   ),
                 )
               : SingleChildScrollView(
-                  padding: const EdgeInsets.all(14),
+                  padding: const EdgeInsets.fromLTRB(14, 14, 14, 20),
                   child: Column(
                     children: [
                       // Status banner
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           color: overallColor,
                           borderRadius: BorderRadius.circular(12),
@@ -455,7 +476,7 @@ String? getNearestMajorCity(String cityName) {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                const SizedBox(height: 4),
+                                const SizedBox(height: 2),
                                 Text(
                                   'AQI: $aqiValue — right now',
                                   style: const TextStyle(
