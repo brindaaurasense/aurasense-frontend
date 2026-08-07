@@ -221,12 +221,23 @@ String? getNearestMajorCity(String cityName) {
   }
 
   String formatUpdatedTime(DateTime time) {
+    const days = [
+      'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+      'Friday', 'Saturday', 'Sunday'
+    ];
+    const months = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+    final dayName = days[time.weekday - 1];
+    final monthName = months[time.month - 1];
+
     int hour = time.hour;
     final minute = time.minute.toString().padLeft(2, '0');
     final period = hour >= 12 ? 'PM' : 'AM';
     hour = hour % 12;
     if (hour == 0) hour = 12;
-    return 'Updated $hour:$minute $period';
+    return 'Updated $dayName, ${time.day} $monthName, $hour:$minute $period';
   }
 
   String getOverallMessage(String? condition) {
@@ -318,7 +329,7 @@ String? getNearestMajorCity(String cityName) {
                 formatUpdatedTime(lastUpdated!),
                 style: const TextStyle(
                   color: Color(0xFF5DCAA5),
-                  fontSize: 9,
+                  fontSize: 10,
                 ),
               ),
           ],
@@ -608,7 +619,7 @@ String? getNearestMajorCity(String cityName) {
 
                       const SizedBox(height: 8),
 
-                      // Overall status tile
+                      // Health tip tile
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(14),
@@ -623,7 +634,7 @@ String? getNearestMajorCity(String cityName) {
                                 color: Color(0xFFE1F5EE), size: 20),
                             const SizedBox(height: 4),
                             const Text(
-                              'Overall Status',
+                              'Health Tip',
                               style: TextStyle(
                                 color: Color(0xFF9FE1CB),
                                 fontSize: 11,
@@ -639,28 +650,17 @@ String? getNearestMajorCity(String cityName) {
                               ),
                             ),
                             const SizedBox(height: 6),
-                            Text(
-                              getOverallMessage(aqiCondition),
-                              style: const TextStyle(
-                                color: Color(0xFF9FE1CB),
-                                fontSize: 11,
+                            if (getHealthTip(aqiCondition).isNotEmpty)
+                              Text(
+                                getHealthTip(aqiCondition),
+                                style: const TextStyle(
+                                  color: Color(0xFF9FE1CB),
+                                  fontSize: 11,
+                                ),
                               ),
-                            ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 12),
-                      if (getHealthTip(aqiCondition).isNotEmpty)
-                        Center(
-                          child: Text(
-                            getHealthTip(aqiCondition),
-                            style: const TextStyle(
-                              color: Color(0xFF085041),
-                              fontSize: 12,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ),
                     ],
                   ),
                 ),
