@@ -660,15 +660,7 @@ String? getNearestMajorCity(String cityName) {
                                 fontSize: 11,
                               ),
                             ),
-                            Text(
-                              aqiCondition.replaceAll(
-                                  RegExp(r'[^\x00-\x7F]'), '').trim(),
-                              style: const TextStyle(
-                                color: Color(0xFFE1F5EE),
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                            
                             const SizedBox(height: 6),
                             if (getHealthTip(aqiCondition).isNotEmpty)
                               Text(
