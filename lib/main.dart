@@ -268,6 +268,20 @@ String? getNearestMajorCity(String cityName) {
     return '';
   }
 
+  String getDailyQuote() {
+  const quotes = [
+    '🌿 Even small steps count. You showed up today.',      // Monday
+    '🍃 Fresh air brings a fresh perspective.',              // Tuesday
+    '🌸 Be gentle with yourself today.',                     // Wednesday
+    '💚 Clean air, peaceful mind.',                          // Thursday
+    '☁️ Bad days pass. This one will too.',                  // Friday
+    '☀️ Step outside and enjoy the fresh air.',              // Saturday
+    '🌿 Keep breathing. Keep believing.',                    // Sunday
+  ];
+  final weekday = DateTime.now().weekday; // Monday=1 ... Sunday=7
+  return quotes[weekday - 1];
+}
+
   @override
   Widget build(BuildContext context) {
     final aqi     = cityData?['aqi'];
@@ -336,6 +350,8 @@ String? getNearestMajorCity(String cityName) {
         ),
         actions: [
           IconButton(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            constraints: const BoxConstraints(),
             icon: RotationTransition(
               turns: _refreshController,
               child: const Icon(Icons.refresh, color: Color(0xFF9FE1CB)),
@@ -349,6 +365,8 @@ String? getNearestMajorCity(String cityName) {
                   },
           ),
           IconButton(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            constraints: const BoxConstraints(),
             icon: const Icon(Icons.notifications, color: Color(0xFF9FE1CB)),
             onPressed: () async {
               final prefs = await SharedPreferences.getInstance();
@@ -410,8 +428,10 @@ String? getNearestMajorCity(String cityName) {
               }
             },
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 4),
           IconButton(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            constraints: const BoxConstraints(),
             icon: const Icon(Icons.person, color: Color(0xFF9FE1CB)),
             onPressed: () async {
               final prefs = await SharedPreferences.getInstance();
@@ -563,7 +583,7 @@ String? getNearestMajorCity(String cityName) {
                         physics: const NeverScrollableScrollPhysics(),
                         crossAxisSpacing: 8,
                         mainAxisSpacing: 8,
-                        childAspectRatio: 1.0,
+                        childAspectRatio: 1.1,
                         children: [
                           _buildTile(
                             context,
@@ -634,7 +654,7 @@ String? getNearestMajorCity(String cityName) {
                                 color: Color(0xFFE1F5EE), size: 20),
                             const SizedBox(height: 4),
                             const Text(
-                              'Health Tip',
+                              "Today's Nature Note",
                               style: TextStyle(
                                 color: Color(0xFF9FE1CB),
                                 fontSize: 11,
@@ -658,6 +678,15 @@ String? getNearestMajorCity(String cityName) {
                                   fontSize: 11,
                                 ),
                               ),
+                            const SizedBox(height: 6),
+                            Text(
+                              getDailyQuote(),
+                              style: const TextStyle(
+                                color: Color(0xFF9FE1CB),
+                                fontSize: 11,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -747,9 +776,10 @@ String? getNearestMajorCity(String cityName) {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Icon(icon, color: const Color(0xFF9FE1CB), size: 24),
+            const SizedBox(height: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
